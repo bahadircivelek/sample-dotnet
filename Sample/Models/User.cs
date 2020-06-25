@@ -17,4 +17,5 @@ namespace Sample.Models
 
         public string Email { get; set; }
     }
+
 }
