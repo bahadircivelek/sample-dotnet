@@ -50,4 +50,4 @@ After the build is finished, your Docker image will be ready in "Packages" menu 
 docker pull docker.pkg.github.com/username/sample-dotnet/primeapps-sample:1.0.0
 ```
 
-You can now create a container in PrimeApps Studio using this information.
+You can now create a container in PrimeApps Studio using this information..
