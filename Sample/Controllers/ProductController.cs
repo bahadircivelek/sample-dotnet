@@ -11,7 +11,7 @@ namespace Sample.Controllers
     public class SampleController : BaseController
     {
         /// <summary>
-        /// Get Users
+        /// Get Product
         /// </summary>  
         ///<response code="200">Successful operation</response>
         ///<response code="400">Invalid request</response>
