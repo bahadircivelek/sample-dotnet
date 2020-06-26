@@ -7,30 +7,31 @@ using Sample.Models;
 
 namespace Sample.Controllers
 {
-    [Route("api/sample")]
+    [Route("api/product")]
     public class SampleController : BaseController
     {
+
         /// <summary>
-        /// Get Product
+        /// Get Product Stock
         /// </summary>  
         ///<response code="200">Successful operation</response>
         ///<response code="400">Invalid request</response>
         ///<returns>List of Users</returns>
-        [HttpPost, Route("get_users")]
-        [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
+        [HttpPost, Route("stock")]
+        [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetUsers([FromBody]User user)
+        public async Task<IActionResult> Stock([FromBody]Product product)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var users = await PrimeApps.GetAllUsers();
-            var userList = users.Select(usr => (User)usr.ToObject(typeof(User))).ToList();
+            var productData = new Product
+            {
+                Id = product.Id,
+                Stock = 10
+            };
 
-            if (!string.IsNullOrWhiteSpace(user.Email))
-                userList = userList.FindAll(x => x.Email == user.Email);
-
-            return Ok(userList);
+            return Ok(productData);
         }
     }
 }
