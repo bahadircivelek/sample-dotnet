@@ -28,7 +28,7 @@ namespace Sample.Controllers
             var productData = new Product
             {
                 Id = product.Id,
-                Stock = new Random().Next(0, 10)
+                Stock = 10
             };
 
             return Ok(productData);
